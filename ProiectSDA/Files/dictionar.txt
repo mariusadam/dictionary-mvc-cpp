@@ -1,0 +1,13 @@
+tail = coada
+cry = strigat
+cry = a plange
+red = rosu
+append = a atasa
+append = a adauga
+cat = pisica
+blood = neam
+book = a rezerva
+book = carte
+book = publicatie
+blood = sange
+tail = revers

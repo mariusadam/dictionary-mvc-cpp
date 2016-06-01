@@ -39,6 +39,7 @@ public:
 	Type& pop();
 	Type& remove(const Type& element);
 	Type& operator[](const int& offset) const;
+	Vector<Type> operator=(const Vector<Type> &other);
 	IteratorVector<Type> begin() const;
 	IteratorVector<Type> end() const;
 };
@@ -151,6 +152,18 @@ template<typename Type>inline Type& Vector<Type>::remove(const Type& elem) {
 
 template<typename Type>inline Type& Vector<Type>::operator[](const int& offset) const {
 	return this->at(offset);
+}
+
+template<typename Type>
+inline Vector<Type> Vector<Type>::operator=(const Vector<Type>& other) {
+	delete[] this->__elements;
+	this->__elements = new Type[other.__capacity];
+	for (int i = 0; i < other.__size; i++) {
+		this->__elements[i] = other.__elements[i];
+	}
+	this->__size = other.__size;
+	this->__capacity = other.__capacity;
+	return *this;
 }
 
 template<typename Type>inline IteratorVector<Type> Vector<Type>::begin() const {

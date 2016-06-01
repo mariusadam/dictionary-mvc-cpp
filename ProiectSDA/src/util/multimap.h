@@ -25,6 +25,7 @@ private:
 		return index;
 	}
 	void __redispersion();
+	bool __put(const TKey &key, const TValue &value);
 public:
 	template<typename TKey, typename TValue>friend class IteratorMultiMap;
 	static const int DEFAULT_CAPACITY;
@@ -52,7 +53,7 @@ public:
 
 /* Start of MultiMap implementation */
 
-template<typename TKey, typename TValue>const int MultiMap<TKey, TValue>::DEFAULT_CAPACITY = 4;
+template<typename TKey, typename TValue>const int MultiMap<TKey, TValue>::DEFAULT_CAPACITY = 10;
 
 template<typename TKey, typename TValue>MultiMap<TKey, TValue>::MultiMap() {
 	this->__size = 0;
@@ -79,7 +80,7 @@ template<typename TKey, typename TValue>void MultiMap<TKey, TValue>::__redispers
 	delete[] oldEntries;
 }
 
-template<typename TKey, typename TValue>void MultiMap<TKey, TValue>::add(const TKey &key, const TValue &value) {
+template<typename TKey, typename TValue>bool MultiMap<TKey, TValue>::__put(const TKey &key, const TValue &value) {
 	int i, j;
 	Entry<TKey, TValue> newEntry{ key, value };
 	bool added = false;
@@ -92,9 +93,14 @@ template<typename TKey, typename TValue>void MultiMap<TKey, TValue>::add(const T
 			added = true;
 		}
 	}
-	if (i == this->__capacity) {
+	return added;
+}
+
+template<typename TKey, typename TValue>void MultiMap<TKey, TValue>::add(const TKey &key, const TValue &value) {
+	if (this->__put(key, value) == false) {
+		//nu mai este spatiu --> realocam si redispersam si adaugam din nou
 		this->__redispersion();
-		this->add(key, value);
+		this->__put(key, value);
 	}
 }
 

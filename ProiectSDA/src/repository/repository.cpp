@@ -37,11 +37,21 @@ void Repository::__saveToFile() {
 	fout.close();
 }
 
+bool Repository::containsEntry(const std::string & cuvant, const std::string & explicatie) const{
+	return this->__dictionary.containsEntry(cuvant, explicatie);
+}
+
 void Repository::add(const std::string & cuvant, const std::string & explicatie) {
-	if (this->__dictionary.containsEntry(cuvant, explicatie)) {
-		throw DictionarException("The pair : " + cuvant + " => " + explicatie + " is already added!");
+	if (this->containsEntry(cuvant, explicatie)) {
+		//return;
+		throw DictionarException("Perechea : " + cuvant + " => " + explicatie + " exista deja!");
 	}
-	this->__dictionary.add(cuvant, explicatie);
+	try {
+		this->__dictionary.add(cuvant, explicatie);
+	}
+	catch (MultiMapException &ex) {
+		throw DictionarException("Cuvantul " + cuvant + " nu a putut fi gasit!");
+	}
 }
 
 void Repository::del(const std::string & cuvant, const std::string & explicatie) {
@@ -49,7 +59,7 @@ void Repository::del(const std::string & cuvant, const std::string & explicatie)
 		this->__dictionary.remove(cuvant, explicatie);
 	}
 	catch (MultiMapException &ex) {
-		throw DictionarException("The pair : " + cuvant + " => " + explicatie + " does not exists!");
+		throw DictionarException("Perechea : " + cuvant + " => " + explicatie + " nu exista in dictionar!");
 	}
 }
 
@@ -58,15 +68,22 @@ void Repository::delAll(const std::string & cuvant) {
 		this->__dictionary.removeAll(cuvant);
 	}
 	catch (MultiMapException &ex) {
-		throw DictionarException("The key : " + cuvant + " does not exists!");
+		throw DictionarException("Cuvantul : " + cuvant + " nu exista in dictionar!");
 	}
 }
 
 void Repository::update(const std::string & cuvant, const std::string & explicatieVeche, const std::string & explicatieNoua) {
-	if (this->__dictionary.containsEntry(cuvant, explicatieNoua)) {
-		throw DictionarException("The pair : " + cuvant + " => " + explicatieNoua + " is already added!");
+	std::string errors{ "" };
+	if (this->containsEntry(cuvant, explicatieVeche) == false) {
+		errors += "Perechea : " + cuvant + " => " + explicatieVeche + " nu exista in dictionar!\n";
 	}
-	this->del(cuvant, explicatieNoua);
+	if (this->containsEntry(cuvant, explicatieNoua)) {
+		errors += "Perechea : " + cuvant + " => " + explicatieNoua + " exista deja!\n";
+	}
+	if (errors.empty() == false) {
+		throw DictionarException(errors);
+	}
+	this->del(cuvant, explicatieVeche);
 	this->add(cuvant, explicatieNoua);
 }
 
@@ -74,6 +91,19 @@ Vector<std::string> Repository::getMultimeCuvinte() const {
 	return this->__dictionary.keySet();
 }
 
+Vector<std::string> Repository::getExplicatiiPentruCuvant(const std::string & cuvant) {
+	try {
+		return this->__dictionary[cuvant];
+	}
+	catch (MultiMapException& ex) {
+		throw DictionarException("Cuvantul " + cuvant + " nu a putut fi gasit!");
+	}
+}
+
 const MultiMap<std::string, std::string>& Repository::getDictionar() const {
 	return this->__dictionary;
+}
+
+bool Repository::containsKey(const std::string & cuvant) const {
+	return this->__dictionary.containsKey(cuvant);
 }

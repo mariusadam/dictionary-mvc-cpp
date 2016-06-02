@@ -22,11 +22,15 @@ private:
 	QLabel* __nrExplicatiiLabel;
 	QLineEdit* __cuvantLineEdit;
 	QLineEdit* __explicatieLineEdit;
+	QLineEdit* __searchLineEdit;
+	QPushButton* __searchButton;
 	QPushButton* __addCuvantButton;
 	QPushButton* __updateExplicatieButton;
 	QPushButton* __addExplicatieButton;
 	QPushButton* __deleteExplicatieButton;
 	QPushButton* __deleteCuvantButton;
+	QPushButton* __refreshButton;
+	QPushButton* __quitButton;
 
 	void __initComponents();
 	void __connectSignalsSlots();
@@ -41,6 +45,15 @@ private:
 	private slots:
 	void __on_cuvinteListWidgetItem_clicked();
 	void __on_explicatiiListWidgetItem_clicked();
+	void __on_addCuvantButton_clicked();
+	void __on_updateExplicatieButton_clicked();
+	void __on_addExplicatieButton_clicked();
+	void __on_deleteExplicatieButton_clicked();
+	void __on_deleteCuvantButton_clicked();
+	void __on_refreshButton_clicked();
+	void __on_searchButton_clicked();
+	void __on_quitButton_Clicked();
+	void __on_cuvinteListWidgetItem_selectionChanged();
 
 public:
 	App(Controller& ctrl) : __ctrl{ ctrl } {

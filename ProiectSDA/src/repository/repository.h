@@ -33,7 +33,10 @@ public:
 	void delAll(const std::string &cuvant);
 	void update(const std::string &cuvant, const std::string &explicatieVeche, const std::string &explicatieNoua);
 	Vector<std::string> getMultimeCuvinte() const;
+	Vector<std::string> getExplicatiiPentruCuvant(const std::string &cuvant);
 	const MultiMap<std::string, std::string>& getDictionar() const;
+	bool containsEntry(const std::string & cuvant, const std::string & explicatie) const;
+	bool containsKey(const std::string & cuvant) const;
 };
 
 #endif // !REPOSITORY_H

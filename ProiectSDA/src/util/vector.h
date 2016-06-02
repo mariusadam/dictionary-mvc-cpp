@@ -93,6 +93,8 @@ template<typename Type>inline  Vector<Type>::Vector(const Vector& other) {
 }
 
 template<typename Type>inline Vector<Type>::~Vector() {
+	this->__size = 0;
+	this->__capacity = 0;
 	delete[] this->__elements;
 }
 

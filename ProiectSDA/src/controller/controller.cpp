@@ -2,18 +2,26 @@
 
 void Controller::__validateEntry(const std::string & cuvant, const std::string & explicatie) {
 	std::string errors{ "" };
-	if (cuvant == "" || cuvant.length() > 30) {
-		errors += "Cuvantul introdus este invalid!\n";
+	if (cuvant == "" || cuvant.length() > 255) {
+		errors += "Cuvantul " + cuvant + " este invalid!\n";
 	}
 	if (explicatie == "") {
-		errors += "Explicatia introdusa este invalida!\n";
+		errors += "Explicatia " + explicatie + " este invalida!\n";
 	}
 	if (errors.empty() == false) {
 		throw DictionarException(errors);
 	}
 }
 
-void Controller::add(const std::string cuvant, const std::string explicatie) {
+void Controller::addCuvantNou(const std::string cuvant, const std::string explicatie) {
+	this->__validateEntry(cuvant, explicatie);
+	if (this->__repo.containsKey(cuvant)) {
+		throw DictionarException("Cuvantul " + cuvant + " exista deja!");
+	}
+	this->__repo.add(cuvant, explicatie);
+}
+
+void Controller::addExplicatiePentruCuvant(const std::string cuvant, const std::string explicatie) {
 	this->__validateEntry(cuvant, explicatie);
 	this->__repo.add(cuvant, explicatie);
 }
@@ -37,6 +45,16 @@ Vector<std::string> Controller::getMultimeCuvinte() {
 }
 
 Vector<std::string> Controller::getExplicatiiPentruCuvant(const std::string & cuvant) {
-	const MultiMap<std::string, std::string> &map = this->__repo.getDictionar();
-	return map[cuvant];
+	return this->__repo.getExplicatiiPentruCuvant(cuvant);
+}
+
+Vector<std::string> Controller::getCuvinteFiltrate(const std::string pattern) {
+	auto multimeCuvinte = this->getMultimeCuvinte();
+	Vector<std::string> rez;
+	for (const auto& cuvant : multimeCuvinte) {
+		if (cuvant.find(pattern) != std::string::npos) {
+			rez.push_back(cuvant);
+		}
+	}
+	return rez;
 }

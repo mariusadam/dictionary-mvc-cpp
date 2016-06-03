@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Controller" Collapsed="true">
+    <Position X="4" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAQAgAAAAAICAhBAAIAAAAAAAAAAAAACEBAA=</HashCode>
+      <FileName>src\controller\controller.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DictionarException" Collapsed="true">
+    <Position X="6.5" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\repository\repository.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repository" Collapsed="true">
+    <Position X="4" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAACAaAAAAAAAASAACAgBCAAAAAAAAAAAAAAAAeAIA=</HashCode>
+      <FileName>src\repository\repository.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entry&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAgQAAAAAABACCAABAAAAQQAAAAAAAAAAFAgAAAAAAA=</HashCode>
+      <FileName>src\util\entry.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMapException" Collapsed="true">
+    <Position X="9.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\util\multimap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiMap&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="6.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAhACRCIQAIAAAEAIIgQAASCAEAACAAAABAAAgCUAA=</HashCode>
+      <FileName>src\util\multimap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IteratorMultiMap&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="6.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAIAIAAAAAAAAAgQAAAAQAIAAAAAAAAAAAgAAIAEAQ=</HashCode>
+      <FileName>src\util\multimap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VectorException" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\util\vector.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector&lt;Type&gt;" Collapsed="true">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAJCAQQAAAAEAIkIAIAQCAEAAAAAgEAgAAAAAAA=</HashCode>
+      <FileName>src\util\vector.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IteratorVector&lt;Type&gt;" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAQAAAEQAIAAAAAAABAAAgAAIAAAQ=</HashCode>
+      <FileName>src\util\vector.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ui_AppClass" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAQAAAAAAAAIAAAAQAIAAAgAAAAAAAAAA=</HashCode>
+      <FileName>GeneratedFiles\ui_app.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ui::AppClass" Collapsed="true">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneratedFiles\ui_app.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App" Collapsed="true">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAwIKAAAoAxAAAdAAQCBAQBAECEDkgABAAgggA=</HashCode>
+      <FileName>src\gui\app.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="qt_meta_stringdata_App_t" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>GeneratedFiles\Debug\moc_app.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="`anonymous-namespace'::initializer" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAEA=</HashCode>
+      <FileName>GeneratedFiles\qrc_app.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
